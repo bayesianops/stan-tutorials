@@ -35,11 +35,11 @@ model {
   beta ~ normal(0, 1);
   sigma ~ normal(0, 1);
   
-  y ~ lognormal(y_hat, sigma);
+  y ~ lognormal(log(y_hat), sigma);
 }
 generated quantities {
   vector[N] y_rep;
   for (n in 1:N) {
-    y_rep[n] = lognormal(log(y_hat[n]), sigma);
+    y_rep[n] = lognormal_rng(log(y_hat[n]), sigma);
   }
 }
