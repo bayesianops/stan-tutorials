@@ -1,3 +1,9 @@
+# Remove any executable files
+**/stan/*
+!**/stan/*.stan
+
+*~
+
 # History files
 .Rhistory
 .Rapp.history
